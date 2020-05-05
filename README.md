@@ -18,7 +18,7 @@ The Scaleway API will try to pull the following environment variables for conven
 | -- | -- |
 | SCW_SECRET_KEY | Your Scaleway key. More information can be found [in Scaleway's documentation]() |
 | SCW_DEFAULT_REGION | Should be either `nl-ams` or `fr-par` (Default: `fr-par`) |
-| SCW_DEFAULT_ZONE |  Should be either `nl-ams-1` or `fr-par-1` (Default: `fr-par-1`) |
+| SCW_DEFAULT_ZONE |  Should be either `nl-ams-1` or `fr-par-1` (Default: `REGION-1` / `fr-par-1`) |
 | SCW_API_VERSION |  Currently only `v1` is available. Added to future-proof the library. |
 
 ## Development
