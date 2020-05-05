@@ -8,8 +8,8 @@ from scaleway_api import Scaleway
 scw = Scaleway("nl-ams", "<SECRET KEY>")
 servers = scw.instance.servers.GET()
 
-for server in servers.json.items():
-    print(f"Server Name: {server["name"]}")
+for server in servers.json().get("servers", {}):
+    print(f'Server Name: {server["name"]}')
 ```
 
 ## Environment Variables
