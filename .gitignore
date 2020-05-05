@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+*.log
+.DS_Store
+*.swp
+venv/*
+.vscode/
+.coverage
+scaleway_api.egg-info
+dist/
+build/
