@@ -56,3 +56,18 @@ class UrlTests(TestCase):
             "https://api.scaleway.com/lbs/v1/regions/fr-par/lbs",
             str(scw.lbs.lbs),
         )
+    
+    def test_zone_arg(self):
+        scw = Scaleway(zone="test-region-3")
+        self.assertEqual(
+            "https://api.scaleway.com/instance/v1/zones/test-region-3/servers",
+            str(scw.instance.servers),
+        )
+
+    @patch("os.environ", {"SCW_DEFAULT_ZONE": "test-region-2"})
+    def test_default_zone_environment_variable(self):
+        scw = Scaleway()
+        self.assertEqual(
+            "https://api.scaleway.com/instance/v1/zones/test-region-2/servers",
+            str(scw.instance.servers),
+        )

@@ -16,7 +16,7 @@ class Scaleway(Hammock):
         "registry",
     ]
 
-    def __init__(self, region=None, token=None, version=None, **kwargs):
+    def __init__(self, region=None, token=None, version=None, zone=None, **kwargs):
         """Constructor takes optional region and access token"""
 
         self._headers = {
@@ -28,6 +28,9 @@ class Scaleway(Hammock):
         self._name = kwargs["name"] if "name" in kwargs else "https://api.scaleway.com"
         self._region = (
             region if region else os.environ.get("SCW_DEFAULT_REGION", self.REGIONS[0])
+        )
+        self._zone = (
+            zone if zone else os.environ.get("SCW_DEFAULT_ZONE", f"{self._region}-1")
         )
         self._version = version if version else os.environ.get("SCW_API_VERSION", "v1")
 
@@ -66,8 +69,8 @@ class Scaleway(Hammock):
 
     @property
     def _instance(self):
-        return self._spawn("instance")._spawn(self._version).zones(f"{self._region}-1")
+        return self._spawn("instance")._spawn(self._version).zones(self._zone)
 
     @property
     def _baremetal(self):
-        return self._spawn("baremetal")._spawn(self._version).zones(f"{self._region}-1")
+        return self._spawn("baremetal")._spawn(self._version).zones(self._zone)
