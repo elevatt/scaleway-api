@@ -15,7 +15,7 @@ for server in servers.json().get("servers", {}):
 ## Environment Variables
 The Scaleway API will try to pull the following environment variables for convencience.
 | Environment Variable | Description |
-| -- | -- |
+| :-- | :-- |
 | SCW_SECRET_KEY | Your Scaleway key. More information can be found [in Scaleway's documentation]() |
 | SCW_DEFAULT_REGION | Should be either `nl-ams` or `fr-par` (Default: `fr-par`) |
 | SCW_DEFAULT_ZONE |  Should be either `nl-ams-1` or `fr-par-1` (Default: `REGION-1` / `fr-par-1`) |
